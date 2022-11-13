@@ -4,16 +4,18 @@ import Form from "react-bootstrap/Form";
 class SearchBar extends React.Component {
   state = { keyword: "" };
 
-  onFormSubmit(event) {
+  onFormSubmit = (event) => {
     event.preventDefault();
-  }
+    this.props.onSubmit(this.state.keyword);
+  };
 
   render() {
     return (
       <div className="mt-5">
+        <h1 className="text-center">Image Search Engine</h1>
         <Form onSubmit={this.onFormSubmit}>
           <Form.Group className="mb-3" controlId="formBasicEmail">
-            <Form.Label>Image Search</Form.Label>
+            <Form.Label>Search Image</Form.Label>
             <Form.Control
               type="text"
               placeholder="Enter word"
